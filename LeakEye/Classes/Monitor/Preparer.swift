@@ -21,22 +21,22 @@ class Preparer: NSObject {
             // UINavigationController
             var orig = #selector(UINavigationController.pushViewController(_:animated:))
             var alter = #selector(UINavigationController.app_pushViewController(_:animated:))
-            UINavigationController.swizzleInstanceMethod(origSelector: orig, toAlterSelector: alter)
+            _ = UINavigationController.swizzleInstanceMethod(origSelector: orig, toAlterSelector: alter)
             
             
             // UIView
             orig = #selector(UIView.didMoveToSuperview)
             alter = #selector(UIView.app_didMoveToSuperview)
-            UIView.swizzleInstanceMethod(origSelector: orig, toAlterSelector: alter)
+            _ = UIView.swizzleInstanceMethod(origSelector: orig, toAlterSelector: alter)
             
             // UIViewController
             orig = #selector(UIViewController.present(_:animated:completion:))
             alter = #selector(UIViewController.app_present(_:animated:completion:))
-            UIViewController.swizzleInstanceMethod(origSelector: orig, toAlterSelector: alter)
+            _ = UIViewController.swizzleInstanceMethod(origSelector: orig, toAlterSelector: alter)
             
             orig = #selector(UIViewController.viewDidAppear(_:))
             alter = #selector(UIViewController.app_viewDidAppear(_:))
-            UIViewController.swizzleInstanceMethod(origSelector: orig, toAlterSelector: alter)
+            _ = UIViewController.swizzleInstanceMethod(origSelector: orig, toAlterSelector: alter)
             
         }
     }
@@ -76,7 +76,7 @@ extension UIView {
         }
         
         if hasAliveParent {
-            self.makeAlive()
+            _ = self.makeAlive()
         }
     }
 }
@@ -89,7 +89,7 @@ extension UIViewController {
     @objc fileprivate func app_present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Swift.Void)? = nil) {
         self.app_present(viewControllerToPresent, animated: flag, completion: completion)
         
-        viewControllerToPresent.makeAlive()
+        _ = viewControllerToPresent.makeAlive()
     }
     
     @objc fileprivate func app_viewDidAppear(_ animated: Bool) {

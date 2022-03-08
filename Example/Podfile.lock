@@ -1,23 +1,27 @@
 PODS:
-  - AppSwizzle (1.1.2)
-  - LeakEye (1.1.3):
-    - AppSwizzle (~> 1.1.2)
-
-DEPENDENCIES:
-  - LeakEye (from `../`)
-
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  - AppSwizzle (1.3.1)
+  - LeakEye (1.2.0):
     - AppSwizzle
 
+DEPENDENCIES:
+  - "AppSwizzle (from `git@github.com:dsencheng/AppSwizzle.git`)"
+  - LeakEye (from `../`)
+
 EXTERNAL SOURCES:
+  AppSwizzle:
+    :git: "git@github.com:dsencheng/AppSwizzle.git"
   LeakEye:
     :path: "../"
 
+CHECKOUT OPTIONS:
+  AppSwizzle:
+    :commit: 8da446e256ff5759174150bd805b7c61f3d4d2cd
+    :git: "git@github.com:dsencheng/AppSwizzle.git"
+
 SPEC CHECKSUMS:
-  AppSwizzle: 45d1a9d71821e7e1bb3a2a503c2979ca6fe4e46d
-  LeakEye: 16783431129e8c36a07a7c06b273ad30ce2e82ed
+  AppSwizzle: b857a1c3d32648bd64fffe987b8cce2616bda7bb
+  LeakEye: 182a3eb5cdbc5dbd69532787c733b398cea8f483
 
-PODFILE CHECKSUM: 63e89493110ff745cf47b7b8f73f2abfa6f21719
+PODFILE CHECKSUM: 2302569b4b4bd2422290dc1b4850eef9d307100d
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.11.2
